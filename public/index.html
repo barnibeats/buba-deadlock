@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soulsmith — топ сборок Deadlock</title>
+<script>
+
+    try {
+      var t = localStorage.getItem('dl-theme');
+      if (t !== 'dark' && t !== 'light') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    } catch (e) { document.documentElement.dataset.theme = 'light'; }
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brandwrap">
+    <div class="brand"><span class="logo">◈</span> Soul<b>smith</b></div>
+    <div class="metabar"><span id="metatext"></span><button id="verbtn" class="linkbtn" type="button" title="Проверить обновления"></button></div>
+  </div>
+  <div class="controls">
+    <div class="seg" id="period" role="tablist" aria-label="Период">
+      <button data-v="day">24 часа</button>
+      <button data-v="week" class="on">7 дней</button>
+      <button data-v="month">28 дней</button>
+      <button data-v="patch" hidden>Патч</button>
+      <button data-v="season" hidden>Сезон</button>
+    </div>
+    <label class="sel">Ранг
+      <select id="rank">
+        <option value="0">Все</option>
+        <option value="60">Emissary+</option>
+        <option value="70">Archon+</option>
+        <option value="80">Oracle+</option>
+        <option value="90">Phantom+</option>
+      </select>
+    </label>
+  </div>
+  <button id="theme" class="theme" type="button" role="switch" aria-checked="false" aria-label="Тёмная тема" title="Потянуть за шнурок — светлая или тёмная тема">
+    <span class="cord"></span><span class="knob"></span>
+  </button>
+</header>
+<div id="updbar" class="updbar" hidden></div>
+
+<div class="layout">
+  <aside class="side">
+    <input id="search" type="search" placeholder="Поиск героя…" autocomplete="off">
+    <button class="hero-btn overview-btn" data-hero="picks"><span class="ic">▲</span> Топ‑10 пиков</button>
+    <button class="hero-btn overview-btn" data-hero="hotfixes"><span class="ic">⚒</span> Хотфиксы</button>
+    <button class="hero-btn overview-btn" data-hero="overview"><span class="ic">▦</span> Обзор: все герои</button>
+    <button class="hero-btn overview-btn" data-hero="my"><span class="ic">★</span> Мои сборки</button>
+    <div id="heroes" class="hero-list"></div>
+  </aside>
+  <main id="main" class="main"><div class="loading">Загрузка…</div></main>
+</div>
+<script src="theme.js"></script>
+<script src="app.js"></script>
+<script src="mybuilds.js"></script>
+</body>
+</html>

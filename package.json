@@ -1,0 +1,19 @@
+{
+  "name": "soulsmith",
+  "version": "1.0.0",
+  "description": "Soulsmith — топ сборок Deadlock по винрейту, популярности и урону",
+  "private": true,
+  "main": "main.js",
+  "soulsmith": {
+    "updateRepoId": 1450727589
+  },
+  "scripts": {
+    "start": "electron .",
+    "server": "node server.js",
+    "package": "electron-packager . Soulsmith --platform=win32 --arch=x64 --out=release --overwrite --icon=build/icon.ico --app-copyright=Soulsmith --win32metadata.CompanyName=Soulsmith --win32metadata.FileDescription=Soulsmith --win32metadata.ProductName=Soulsmith --ignore=^/dist --ignore=^/release --ignore=^/.playwright-mcp --ignore=^/.git --ignore=^/build-exe.bat --ignore=^/package-lock.json --ignore=^/README.md --ignore=^/docs"
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "electron": "^45.2.3"
+  }
+}
